@@ -1,0 +1,119 @@
+.blockOne {
+  width: 100%;
+  height: 450px;
+  margin-top: 20px;
+}
+
+.blockBanner {
+  overflow: hidden;
+  position: relative;
+  width: 340px;
+  height: 450px;
+  float: left;
+  border-radius: 4px;
+  .bannerImg {
+    width: 340px;
+    height: 450px;
+  }
+}
+
+.blockBoxOne {
+  float: right;
+  width: 840px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: -10px;
+  li {
+    flex: 1;
+    min-width: 18%;
+    max-width: 18%;
+    overflow: hidden;
+    height: 220px;
+    margin-top: 10px;
+    > div {
+      overflow: hidden;
+      border-radius: 4px;
+      position: relative;
+      height: 100%;
+    }
+    img {
+      width: 100%;
+      height: 220px;
+    }
+    span {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      color: white;
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+
+.blockBoxTwo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  li {
+    flex: 1;
+    em,
+    img,
+    span {
+      float: left;
+    }
+    img {
+      width: 50px;
+    }
+  }
+}
+
+.blockTwo {
+  width: 100%;
+  // overflow: hidden;
+  > div {
+    height: 450px;
+  }
+  .boxOne {
+    float: right;
+    width: 840px;
+  }
+  .boxTwo {
+    float: left;
+    width: 340px;
+  }
+}
+
+.blockHeader {
+  width: 100%;
+  height: 60px;
+  .blockTitle {
+    width: 30%;
+    float: left;
+    height: 60px;
+  }
+  .blockNavs {
+    width: 70%;
+    height: 60px;
+    float: left;
+    display: flex;
+    line-height: 60px;
+    li {
+      flex: 1;
+    }
+  }
+}
+
+.blockVideo{
+  overflow: hidden;
+  position: relative;
+  width: 340px;
+  height: 450px;
+  float: left;
+  border-radius: 4px;
+}
