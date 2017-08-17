@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import less from "../movieblock.less";
 import BannerAnim, { Element } from 'rc-banner-anim';
 import TweenOne from 'rc-tween-one';
-// import 'rc-banner-anim/assets/index.css';
+import 'rc-banner-anim/assets/index.css';
 
 const BgElement = Element.BgElement;
 
 const BlockBoxVideo = () => {
 
   return (
-       <BannerAnim className={less.blockVideo}>
+       <BannerAnim className="blockVideo">
         <Element key="aaa"
           prefixCls="banner-user-elem"
         >

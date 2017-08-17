@@ -41,13 +41,8 @@ compiler.plugin('compilation', function (compilation) {
 })
 
 // proxy api requests
-Object.keys(proxyTable).forEach(function (context) {
-  var options = proxyTable[context]
-  if (typeof options === 'string') {
-    options = { target: options }
-  }
-  app.use(proxyMiddleware(options.filter || context, options))
-})
+const proxySet = require('../src/servers/proxy');
+app.use(proxyMiddleware(proxySet.context, proxySet.options));
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())

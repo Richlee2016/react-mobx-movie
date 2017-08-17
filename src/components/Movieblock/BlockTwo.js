@@ -37,7 +37,7 @@ class BlockTwo extends React.Component{
             <BlockHeader moveHandle={i => {this.navChange(i)}}/>
             {oneGroups}
           </div>
-          <div className={less.boxTwo}>
+          <div className="boxTwo">
             <BlockHeader />
             <BlockVideo />
           </div>

@@ -19,14 +19,14 @@ const BlockBoxOne = ({ data}) => {
   });
 
   return (
-      <ul className={less.blockBoxOne}>
+      <ul className="blockBoxOne">
         {box}
       </ul>
   );
 };
 
 BlockBoxOne.propTypes = {
-  data:PropTypes.array
+  // data:PropTypes.array
 };
 
 export default BlockBoxOne;

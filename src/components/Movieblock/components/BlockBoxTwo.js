@@ -19,7 +19,7 @@ const BlockBoxTwo = ({ data }) => {
   });
 
   return (
-    <ul className={less.blockBoxTwo}>
+    <ul className="blockBoxTwo">
       {box}
     </ul>
   );

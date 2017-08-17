@@ -37,6 +37,7 @@ module.exports = {
                 "react"
             ],
             plugins: [
+                "transform-runtime",
                 "transform-async-to-generator",
                 "transform-decorators-legacy"
             ]
@@ -74,6 +75,14 @@ module.exports = {
             "css-loader",
             "postcss-loader",
             "less-loader"
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+            "style-loader",
+            "css-loader",
+            "postcss-loader"
         ]
       }
     ]

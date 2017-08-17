@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LoginBox from "./Login";
 const Header = ({menus,logins}) => {
-
   // 菜单栏
   const menu = menus.map(o =>
     <li key={o.name}>

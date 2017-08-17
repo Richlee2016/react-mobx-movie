@@ -1,4 +1,4 @@
-import { observable, action, computed } from "mobx";
+import { observable, action, computed,autorun } from "mobx";
 // 菜单数据(mock)
 const menus = [
   { name: "首页", href: "home" },
@@ -42,6 +42,7 @@ class App {
     this.logins = logins;
     this.navs = navs;
   }
+  
 }
 
 const app = new App();

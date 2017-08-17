@@ -18,7 +18,7 @@ export default class Index extends React.Component {
     const { menus, logins, navs } = this.store;
     return (
       <div className="container">
-        <Header menus={menus} logins={logins} />
+        <Header menus={menus.toJS()} logins={logins.toJS()} />
         <div className="banner" style={{ background: `url(${bannerImg})` }} />
         <Search />
         <div className="main">

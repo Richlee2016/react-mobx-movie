@@ -15,9 +15,9 @@ const BlockHeader = ({moveHandle}) => {
   })
 
   return (
-    <div className={less.blockHeader}>
-      <div className={less.blockTitle}></div>
-      <ul className={less.blockNavs}>
+    <div className="blockHeader">
+      <div className="blockTitle"></div>
+      <ul className="blockNavs">
         {nav}
       </ul>
     </div>
