@@ -34,7 +34,7 @@ class Login extends React.Component {
           this.openLogin(o.handle);
         }}
       >
-        <i className={`iconfont icon-${o.name}`} />
+        <a><i className={`iconfont icon-${o.name}`} /></a>
       </li>
     );
 
@@ -49,9 +49,7 @@ class Login extends React.Component {
           onClick={this.closeLogin}
         >
           <QueueAnim type={["scale"]} ease={["easeOutQuart"]}>
-            {this.state.show
-              ? [<div className="loginbox" key="a" />]
-              : null}
+            {this.state.show ? [<div className="loginbox" key="a" />] : null}
           </QueueAnim>
         </div>
       </div>

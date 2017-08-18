@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "dva";
 // import less from "./Home.less";
 function News() {
  
@@ -12,8 +11,5 @@ function News() {
 
 News.propTypes = {};
 
-function mapStateToProps(state) {
-  return {}
-}
 
-export default connect(mapStateToProps)(News);
+export default News;

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom'
 import PropTypes from "prop-types";
 import LoginBox from "./Login";
 const Header = ({menus,logins}) => {
   // 菜单栏
   const menu = menus.map(o =>
     <li key={o.name}>
-      {o.name}
+      <Link to={o.href}>{o.name}</Link>
     </li>
   );
 

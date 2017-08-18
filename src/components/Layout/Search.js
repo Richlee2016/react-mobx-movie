@@ -28,10 +28,7 @@ class Search extends React.Component {
       <div className="search">
         <div className="serachBox">
           <input placeholder="影片名/明星/导演" onChange={this.setSearchValue} />
-          <i
-            className={"iconfont icon-sousuo"}
-            onClick={this.letSearch}
-          />
+          <i className={"iconfont icon-sousuo"} onClick={this.letSearch} />
         </div>
         <div className="rank" onClick={this.props.rankJump}>
           <i className={"iconfont icon-paixing"} />

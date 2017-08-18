@@ -1,7 +1,7 @@
 import React from "react";
 // import less from "./Home.less";
 function Movies() {
- 
+  console.log(0);
   return (
     <div>
         movies
@@ -10,9 +10,5 @@ function Movies() {
 }
 
 Movies.propTypes = {};
-
-function mapStateToProps(state) {
-  return {}
-}
 
 export default Movies;

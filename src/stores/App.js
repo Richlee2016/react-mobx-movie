@@ -1,11 +1,11 @@
 import { observable, action, computed,autorun } from "mobx";
 // 菜单数据(mock)
 const menus = [
-  { name: "首页", href: "home" },
-  { name: "电影", href: "movies" },
-  { name: "电视剧", href: "teleplays" },
-  { name: "动画片", href: "cartoons" },
-  { name: "资讯", href: "news" }
+  { name: "首页", href: "/home" },
+  { name: "电影", href: "/movies" },
+  { name: "电视剧", href: "/teleplays" },
+  { name: "动画片", href: "/cartoons" },
+  { name: "资讯", href: "/news" }
 ];
 
 // 菜单栏 登录

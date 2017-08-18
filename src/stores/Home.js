@@ -9,17 +9,13 @@ class Home {
 
   // 获取数据
   async getData() {
-    let { data } = await rxiosHome();
-    let res = splarr(data);
-    const result = {
-      newest:res(14),
-      movie:cutarr(res(90),10,9),
-      teleplay:cutarr(res(70),10,7),
-      cartoon:cutarr(res(40),10,4)
-    }
-    runInAction(() => {
-      this.data = result;
-    })
+    // 如果存在不再请求
+    if(this.data.length===0){
+      let { data } = await rxiosHome();
+      runInAction(() => {
+          this.data = data;
+      })
+    };
   }
 
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "dva";
 // import less from "./Home.less";
 function Ranks() {
  
@@ -16,4 +15,4 @@ function mapStateToProps(state) {
   return {}
 }
 
-export default connect(mapStateToProps)(Ranks);
+export default Ranks;
