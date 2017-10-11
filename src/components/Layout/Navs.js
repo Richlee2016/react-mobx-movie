@@ -2,56 +2,46 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import less from "./layout.less";
 import TweenOne from "rc-tween-one";
+import { Link } from "react-router-dom";
+import { qs } from "@/assets/utils";
+const Navs = function({ navs, location,listChange }) {
 
-class Navs extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      active: 0,
-      animation: { left: "0%", duration: 400 }
-    };
-  }
+  const { catalog } = qs(location.search);
 
-  navGo(i) {
-    this.setState({
-      ...this.state,
-      active: i,
-      animation: { left: 80 / 13 * i + "0%", duration: 400 }
-    });
-  }
+  const nav = navs.map((o, i) => (
+    <li key={o.name} onClick={() => {listChange(qs(o.href))}}>
+      <Link to={`/list?${o.href}`}>
+        <span>10</span>
+        <label style={{ color: catalog === o.name ? "#00a1d6" : "initial" }}>
+          {o.name}
+        </label>
+      </Link>
+    </li>
+  ));
 
-  render() {
-    const { navs } = this.props;
-    const nav = navs.map((o, i) => {
-      return (
-        <li
-          key={o.name}
-          onClick={() => {
-            this.navGo(i);
-          }}
-        >
-          <span>10</span>
-          <label
-            style={{ color: this.state.active === i ? "#00a1d6" : "initial" }}
-          >
-            {o.name}
-          </label>
-        </li>
-      );
-    });
+  let animation = {};
+  navs.forEach((o, i) => {
+    if (catalog === o.name) {
+      animation = { left: 80 / 13 * i + "%", duration: 400 };
+    } else if (catalog === undefined) {
+      animation = { left: "0%", duration: 400 };
+    }
+  });
 
-    return (
-      <div className="navs">
-        <ul className="nav">
-          {nav}
-        </ul>
-        <TweenOne animation={this.state.animation} className="navGo" />
-        <ul className="subnav" />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="navs">
+      <ul className="nav">{nav}</ul>
+      {location.pathname === "/list" ? (
+        <TweenOne animation={animation} className="navGo" />
+      ) : null}
+    </div>
+  );
+};
 
-Navs.PropTypes = {};
+Navs.propTypes = {
+  navs: PropTypes.array,
+  location:PropTypes.object,
+  listChange:PropTypes.func
+};
 
 export default Navs;

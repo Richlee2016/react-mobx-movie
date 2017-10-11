@@ -1,8 +1,8 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
+import {toJS} from "mobx"
 import less from "./Home.less";
-import { BlockOne, BlockTwo } from "@/components/Movieblock";
-import { home as rxiosHome } from "@/servers/server";
+import {BlockOne} from "@/components/MovieBlock"
 
 @inject("home")
 @observer
@@ -13,29 +13,17 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.store.getData();
+    this.store.getPageData();
   }
-
+  
   render() {
-    let { newest, movie, teleplay, cartoon } = this.store.data;
-    const newdata = (myArr, n) => {
-      let arr = myArr ? myArr : [];
-      return {
-        one: arr.slice(0, n),
-        two: arr.slice(n, arr.length)
-      };
-    };
-
-    const sendData = {
-      newest: newdata(newest, 4),
-      movie: newdata(movie, 8),
-      teleplay: newdata(teleplay, 5),
-      cartoon: newdata(cartoon, 2)
-    };
+    const {location} = this.props;
+    const home = toJS(this.store.data);
+    const {banner,box} = home;
+    console.log(location.search)
     return (
-          <div className="indexBox">
-            <BlockOne data={sendData.newest || {}} />
-            <BlockTwo data={sendData.movie || {}} />
+          <div className="index-box">
+            {banner?<BlockOne data={banner} /> : null}
           </div>
         );
   }

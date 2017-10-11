@@ -2,17 +2,14 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import less from "./movieblock.less";
 import BlockBoxOne from './components/BlockBoxOne'
-import BlockBanner from './components/BlockBanner'
 
 
 const BlockOne = ({ data }) => {
-  // banner
-  const {one,two} = data;
+  const movies = data.map( o => <BlockBoxOne key={o.id} movie={o} />)
   return (
-    <div className="blockOne">
-      <BlockBanner data={one} />
-      <BlockBoxOne data={two} />
-    </div>
+    <ul className="block-one">
+      {movies}
+    </ul>
   );
 };
 

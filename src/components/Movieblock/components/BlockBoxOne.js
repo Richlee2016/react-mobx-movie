@@ -1,28 +1,19 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import less from "../movieblock.less";
+import less from "./less/boxone.less";
 import { Link } from "react-router-dom";
-const BlockBoxOne = ({ data }) => {
-  //右侧分布
-  const box = data.map(o => {
-    return (
-      <li key={o.id}>
-        <Link to={`/detail/movie/${(o.id)}`}>
-          <div>
-            <img src={o.details.img} />
-            <span>
-              {o.name}
-            </span>
-          </div>
-        </Link>
-      </li>
-    );
-  });
-
+const BlockBoxOne = ({ movie }) => {
   return (
-    <ul className="blockBoxOne">
-      {box}
-    </ul>
+    <li className="movie-box vivify animationObject popInTop">
+      <Link to={`/detail/movie/${movie.id}`}>
+        <div>
+          <img src={movie.img} />
+          <span className="black-block">{movie.year}</span>
+          <span className="black-block">{movie.score}</span>
+          <p className="black-block">{movie.name}</p>
+        </div>
+      </Link>
+    </li>
   );
 };
 

@@ -2,10 +2,13 @@
 
 module.exports = {
     context: [
-        '/api/v0/movies/home'
+        '/movie_api/page',
+        '/movie_api/movie/',
+        '/movie_api/list',
+        '/crawler/movie_bili'
     ],
     options: {
-        target: "http://192.168.2.116:3006/",
+        target: "http://localhost:3006/",
         changeOrigin: true,
     }
 };

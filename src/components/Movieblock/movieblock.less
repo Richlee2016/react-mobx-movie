@@ -1,7 +1,13 @@
-.blockOne {
+.block-one {
   width: 100%;
-  height: 450px;
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  li{
+    min-width: 160px;
+    max-width:160px;
+  }
 }
 
 .blockBanner {
@@ -14,45 +20,6 @@
   .bannerImg {
     width: 340px;
     height: 450px;
-  }
-}
-
-.blockBoxOne {
-  float: right;
-  width: 840px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: -10px;
-  li {
-    flex: 1;
-    min-width: 18%;
-    max-width: 18%;
-    overflow: hidden;
-    height: 220px;
-    margin-top: 10px;
-    div {
-      overflow: hidden;
-      border-radius: 4px;
-      position: relative;
-      height: 100%;
-    }
-    img {
-      width: 100%;
-      height: 220px;
-    }
-    span {
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
-      color: white;
-      text-align: center;
-      display: inline-block;
-      width: 100%;
-      height: 30px;
-      line-height: 30px;
-      background: rgba(0, 0, 0, 0.7);
-    }
   }
 }
 

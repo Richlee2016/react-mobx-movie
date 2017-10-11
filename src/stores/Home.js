@@ -1,20 +1,21 @@
 import { observable, action, computed,runInAction } from "mobx";
-import { home as rxiosHome } from "@/servers/server";
-import {splarr,cutarr} from '../utils'
+import {get_movie_page} from "@/servers/server";
 class Home {
   @observable data;
   constructor() {
     this.data = [];
   }
 
-  // 获取数据
-  async getData() {
-    // 如果存在不再请求
-    if(this.data.length===0){
-      let { data } = await rxiosHome();
-      runInAction(() => {
-          this.data = data;
-      })
+  //获取首页
+  async getPageData() {
+    if(this.data.length === 0){
+      const home = await get_movie_page();
+      const {data:{code,data:{list}}} = home;
+      if(code === 1){
+        runInAction(() => {
+          this.data = list;
+        })
+      };
     };
   }
 
