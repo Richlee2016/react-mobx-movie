@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-import Count from "@/components/count";
+import {toJS} from "mobx"
 import { Header, Search, Navs } from "@/components/Layout";
-import RouterBox from "@/routers"
+import RouterBox from "@/routers";
 import bannerImg from "@/assets/images/test.jpg";
-import * as config from "@/config"
+import * as config from "@/config";
 import "./Index.less";
 
-@inject("app","list")
+@inject("app", "list")
 @observer
 export default class Index extends React.Component {
   constructor(props) {
@@ -16,23 +16,22 @@ export default class Index extends React.Component {
     this.list = this.props.list;
   }
 
-  componentDidMount(){
-    
+  componentDidMount() {
+    this.store.Login(location.hash);
   }
 
   render() {
-    const {location} = this.props;
-    const {navChange,navs} = this.store;
-    const {getListData} = this.list;
+    const { location } = this.props;
+    const { user } = toJS(this.store);
+    const { getListData } = this.list;
     return (
       <div className="container">
-        <Header menus={config.menus} logins={config.logins} />
-        <div className="banner" style={{ background: `url(${bannerImg})` }} />
+        <Header menus={config.menus} logins={config.logins} user={user} />
+        {/*<div className="banner" style={{ background: `url(${bannerImg})` }} />
         <Search />
-        <div className="main">
-          <Navs navs={config.navs} location={location} listChange={qs => {getListData(qs)}} />
-          <RouterBox />
-        </div>
+        <Navs navs={config.navs} location={location} listChange={qs => {getListData(qs)}} />
+      */}
+        <RouterBox />
       </div>
     );
   }

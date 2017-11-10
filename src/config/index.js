@@ -1,9 +1,9 @@
 export const menus = [
-  { name: "首页", href: "/home" },
-  { name: "电影", href: "/movies" },
-  { name: "电视剧", href: "/teleplays" },
-  { name: "动画片", href: "/cartoons" },
-  { name: "资讯", href: "/news" }
+  { name: "熊猫推荐", href: "/" },
+  { name: "电影下载", href: "/movies" },
+  { name: "在线影视", href: "/movies" },
+  { name: "电影资讯", href: "/teleplays" },
+  { name: "熊猫读书", href: "/cartoons" },
 ];
 
 export const navs = [
@@ -16,14 +16,14 @@ export const navs = [
   { name: "剧情片", href: "catalog=剧情片" },
   { name: "战争片", href: "catalog=战争片" },
   { name: "国产剧", href: "catalog=国产剧" },
-  { name: "TVB剧", href: "catalog=TVB剧" },
+  { name: "TVB剧", href: "catalog=港台剧" },
   { name: "欧美剧", href: "catalog=欧美剧" },
   { name: "日本剧", href: "catalog=日韩剧&area=日本" },
   { name: "韩国剧", href: "catalog=日韩剧&area=韩国" }
 ];
 
 export const logins = [
-  { name: "weixin", handle: 1 },
-  { name: "QQ", handle: 2 },
+  { name: "qq", handle: 1 },
+  { name: "weixin", handle: 2 },
   { name: "liuyan", handle: 3 }
 ];

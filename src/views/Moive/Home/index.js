@@ -20,7 +20,6 @@ export default class Home extends React.Component {
     const {location} = this.props;
     const home = toJS(this.store.data);
     const {banner,box} = home;
-    console.log(location.search)
     return (
           <div className="index-box">
             {banner?<BlockOne data={banner} /> : null}

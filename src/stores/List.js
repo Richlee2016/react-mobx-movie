@@ -6,7 +6,7 @@ class List {
     this.list = {}
   }
 
-  //获取首页
+  //获取列表页
    getListData = async (qs) => {
       const listRes = await get_movie_list(qs);
       const {data:{code,data}} = listRes;

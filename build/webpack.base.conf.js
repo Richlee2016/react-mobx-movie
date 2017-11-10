@@ -38,6 +38,7 @@ module.exports = {
             ],
             plugins: [
                 "transform-runtime",
+                ["import", { "libraryName": "antd", "style": "css" }],
                 "transform-async-to-generator",
                 "transform-decorators-legacy"
             ]

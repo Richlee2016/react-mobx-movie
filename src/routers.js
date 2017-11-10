@@ -5,47 +5,57 @@ import LazyRoute from "lazy-route";
 export default class Routers extends React.Component {
   render() {
     return (
-      <div className="router-box">
+      <div className="main">
         <Route
-          path="/home"
-          render={props =>
-            <LazyRoute {...props} component={import("@/views/Home")} />}
+          path="/"
+          render={props => (
+            <LazyRoute {...props} component={import("@/views/DailySpecial")} />
+          )}
         />
-        <Route
+        {/*
+          <Route
           path="/movies"
-          render={props =>
-            <LazyRoute {...props} component={import("@/views/Movies")} />}
+          render={props => (
+            <LazyRoute {...props} component={import("@/views/Movies")} />
+          )}
         />
         <Route
           path="/teleplays"
-          render={props =>
-            <LazyRoute {...props} component={import("@/views/Teleplays")} />}
+          render={props => (
+            <LazyRoute {...props} component={import("@/views/Teleplays")} />
+          )}
         />
         <Route
           path="/cartoons"
-          render={props =>
-            <LazyRoute {...props} component={import("@/views/Cartoons")} />}
+          render={props => (
+            <LazyRoute {...props} component={import("@/views/Cartoons")} />
+          )}
         />
         <Route
           path="/news"
-          render={props =>
-            <LazyRoute {...props} component={import("@/views/News")} />}
+          render={props => (
+            <LazyRoute {...props} component={import("@/views/News")} />
+          )}
         />
         <Route
           path="/ranks"
-          render={props =>
-            <LazyRoute {...props} component={import("@/views/Ranks")} />}
+          render={props => (
+            <LazyRoute {...props} component={import("@/views/Ranks")} />
+          )}
         />
         <Route
           path="/list"
-          render={props =>
-            <LazyRoute {...props} component={import("@/views/List")} />}
+          render={props => (
+            <LazyRoute {...props} component={import("@/views/List")} />
+          )}
         />
         <Route
-        path="/detail"
-        render={props =>
-          <LazyRoute {...props} component={import("@/views/Detail")} />}
-      />
+          path="/movie/:id"
+          render={props => (
+            <LazyRoute {...props} component={import("@/views/Detail")} />
+          )}
+        />
+        */}
       </div>
     );
   }
