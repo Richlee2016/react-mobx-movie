@@ -1,5 +1,5 @@
 import React from "react";
-import "./special.less";
+import "./home.less";
 import qs from "queryString";
 import axios from 'axios'
 class Special extends React.Component {
@@ -8,7 +8,7 @@ class Special extends React.Component {
   }
 
   componentDidMount() {
-    
+
   }
 
   getInfo() {
@@ -24,19 +24,23 @@ class Special extends React.Component {
     location.href = href;
   }
 
-  async login(){
+  async login() {
     const res = axios('/oauth/login');
     console.log(res);
   }
 
-  async logout(){
+  async logout() {
     const res = axios('/oauth/logout');
     console.log(res);
   }
 
-  async logadd(){
+  async logadd() {
     const res = axios('/oauth/test');
     console.log(res);
+  }
+
+  go = () => {
+    // this.props.history.push("/movie");
   }
   render() {
     return (
@@ -46,6 +50,7 @@ class Special extends React.Component {
         <button onClick={this.login}>login</button>
         <button onClick={this.logout}>logout</button>
         <button onClick={this.logadd}>logadd</button>
+        <button onClick={this.go}>go</button>
       </div>
     );
   }

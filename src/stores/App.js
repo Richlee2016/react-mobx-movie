@@ -6,7 +6,8 @@ class App {
     this.user = null;
   }
 
-  //获取首页
+
+  //保持会话
   Login = async hash => {
     const reg = /#/;
     const openid = hash.replace(reg, "");

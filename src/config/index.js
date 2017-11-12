@@ -1,9 +1,8 @@
 export const menus = [
-  { name: "熊猫推荐", href: "/" },
-  { name: "电影下载", href: "/movies" },
-  { name: "在线影视", href: "/movies" },
-  { name: "电影资讯", href: "/teleplays" },
-  { name: "熊猫读书", href: "/cartoons" },
+  { name: "熊猫推荐", href: "/", key: 'home',icon:"laptop" },
+  { name: "电影下载", href: "/movie", key: 'movie' ,icon:"download"},
+  { name: "在线影视", href: "/online", key: 'online' ,icon:"play-circle-o"},
+  { name: "电影资讯", href: "/news", key: 'news' ,icon:"appstore"}
 ];
 
 export const navs = [

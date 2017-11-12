@@ -1,13 +1,13 @@
 import React from "react";
 
-class News extends React.Component {
+class Online extends React.Component {
   render() {
     return (
       <div className="movie-main">
-        news
+        online
       </div>
     );
   }
 }
 
-export default News
+export default Online

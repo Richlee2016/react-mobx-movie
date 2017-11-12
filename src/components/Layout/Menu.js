@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import less from "./layout.less";
+import { Link } from "react-router-dom";
 import { Menu, Icon } from "antd";
+import { menus as menuConfig } from "@/config"
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -12,13 +14,21 @@ class Menus extends React.Component {
     };
   }
   handleClick = e => {
-    console.log("click ", e);
     this.setState({
       current: e.key
     });
   };
 
   render() {
+
+    const menuItem = menuConfig.map(o => {
+      return (<Menu.Item key={o.key}>
+        <Link to={o.href}>
+          <Icon type={o.icon} />{o.name}
+      </Link>
+      </Menu.Item>)
+    })
+
     return (
       <div className="menu-box">
         <Menu
@@ -26,25 +36,14 @@ class Menus extends React.Component {
           selectedKeys={[this.state.current]}
           mode="horizontal"
         >
-          <Menu.Item key="home">
-            <Icon type="laptop" />熊猫推荐
-          </Menu.Item>
-          <Menu.Item key="movieDown">
-            <Icon type="download" />电影下载
-          </Menu.Item>
-          <Menu.Item key="movieOnline">
-            <Icon type="play-circle-o" />在线影视
-          </Menu.Item>
-          <Menu.Item key="movieNew">
-            <Icon type="appstore" />电影资讯
-          </Menu.Item>
+          {menuItem}
           <Menu.Item key="book">
             <a
               href="http://book.richfly.cn"
               target="_blank"
               rel="noopener noreferrer"
             >
-            <Icon type="book" />熊猫读书
+              <Icon type="book" />熊猫读书
             </a>
           </Menu.Item>
         </Menu>

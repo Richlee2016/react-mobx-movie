@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Link, Switch,Redirect } from "react-router-dom";
 import LazyRoute from "lazy-route";
 
 export default class Routers extends React.Component {
@@ -8,27 +8,21 @@ export default class Routers extends React.Component {
       <div className="main">
         <Route
           path="/"
+          exact 
           render={props => (
-            <LazyRoute {...props} component={import("@/views/DailySpecial")} />
-          )}
-        />
-        {/*
-          <Route
-          path="/movies"
-          render={props => (
-            <LazyRoute {...props} component={import("@/views/Movies")} />
+            <LazyRoute {...props} component={import("@/views/Home")} />
           )}
         />
         <Route
-          path="/teleplays"
+          path="/movie"
           render={props => (
-            <LazyRoute {...props} component={import("@/views/Teleplays")} />
+            <LazyRoute {...props} component={import("@/views/Movie")} />
           )}
         />
         <Route
-          path="/cartoons"
+          path="/online"
           render={props => (
-            <LazyRoute {...props} component={import("@/views/Cartoons")} />
+            <LazyRoute {...props} component={import("@/views/Online")} />
           )}
         />
         <Route
@@ -37,25 +31,6 @@ export default class Routers extends React.Component {
             <LazyRoute {...props} component={import("@/views/News")} />
           )}
         />
-        <Route
-          path="/ranks"
-          render={props => (
-            <LazyRoute {...props} component={import("@/views/Ranks")} />
-          )}
-        />
-        <Route
-          path="/list"
-          render={props => (
-            <LazyRoute {...props} component={import("@/views/List")} />
-          )}
-        />
-        <Route
-          path="/movie/:id"
-          render={props => (
-            <LazyRoute {...props} component={import("@/views/Detail")} />
-          )}
-        />
-        */}
       </div>
     );
   }
