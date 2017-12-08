@@ -1,5 +1,5 @@
 import { observable, action, runInAction } from "mobx";
-import { get_user_info } from "@/servers/server";
+import { log_in,log_out } from "@/servers/server";
 class App {
   @observable user;
   constructor() {
@@ -10,8 +10,8 @@ class App {
   //保持会话
   Login = async hash => {
     const reg = /#/;
-    const openid = hash.replace(reg, "");
-    const res = await get_user_info({ openid });
+    const openid = hash?hash.replace(reg, ""):"no";
+    const res = await log_in(openid);
     runInAction(() => {
       const { data: { code, data } } = res;
       if (code === 1) {
@@ -21,6 +21,16 @@ class App {
       }
     });
   };
+
+  LogOut = async () =>{
+    const res = await log_out();
+    runInAction(() => {
+      const { data: { code, data } } = res;
+      if (code === 1) {
+        this.user = null;
+      };
+    });
+  } 
 }
 
 const app = new App();

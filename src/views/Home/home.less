@@ -1,3 +1,68 @@
-.daily-special{
-    padding-top: 60px;
+.daily-special {
+  padding-top: 60px;
+}
+.sp-text{
+  padding-top: 30px;
+}
+.sp-title {
+  overflow: hidden;
+  line-height: 60px;
+  margin-top: 10px;
+  border-bottom: #00a1d6 2px solid;
+  label {
+    float: left;
+    font-size: 20px;
+    color: #00a1d6;
+    padding-left: 70px;
+    background: url("/static/images/icon-title.png") no-repeat 0px 4px;
+    background-size: 60px;
+  }
+  span {
+    float: left;
+    font-size: 36px;
+    color: #f25d8e;
+  }
+}
+.sp-panda {
+  position: relative;
+  height: 289px;
+  font-size: 16px;
+  margin-top: 30px;
+  .sp-intro {
+    text-align: left;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    > img {
+      width: 142px;
+      height: 200px;
+      float: left;
+    }
+    ul {
+      padding-left: 14px;
+      max-width: 320px;
+      float: left;
+      li{
+          margin-top: 6px;
+          span{
+              padding-right: 10px;
+          }
+      }
+    }
+  }
+  .sp-face {
+    position: absolute;
+    left: 128px;
+    top: 170px;
+    height: 120px;
+  }
+}
+.sp-introduce {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-top: 40px;
+  font-size: 14px;
 }

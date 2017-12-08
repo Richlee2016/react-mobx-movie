@@ -1,11 +1,26 @@
 import { observable, action, computed, runInAction } from "mobx";
-import { get_movie_home, get_movie_bili } from "@/servers/server";
+import { get_movie_page,get_movie_home, get_movie_bili } from "@/servers/server";
 class Movie {
+  @observable index;
   @observable movie;
   @observable bili;
   constructor() {
+    this.index = [];
     this.movie = {};
     this.bili = [];
+  }
+
+  //获取首页
+  async getPageData() {
+    if(this.index.length === 0){
+      const home = await get_movie_page();
+      const {data:{code,data:{list}}} = home;
+      if(code === 1){
+        runInAction(() => {
+          this.index = list;
+        })
+      };
+    };
   }
 
   //获取列表页

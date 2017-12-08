@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import less from "./layout.less";
 import { Link } from "react-router-dom";
 import { Menu, Icon } from "antd";
-import { menus as menuConfig } from "@/config"
+import { menus as menuConfig } from "@/config";
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -13,6 +13,18 @@ class Menus extends React.Component {
       current: "home"
     };
   }
+
+  componentDidMount() {
+    this.holdBarActive();//保持菜单底部active
+  }
+
+  holdBarActive(){
+    const { pathname } = location;
+    let path = pathname.replace(/\//, "");
+    if (!path) path = "home";
+    this.setState({current:path});
+  }
+
   handleClick = e => {
     this.setState({
       current: e.key
@@ -20,14 +32,16 @@ class Menus extends React.Component {
   };
 
   render() {
-
     const menuItem = menuConfig.map(o => {
-      return (<Menu.Item key={o.key}>
-        <Link to={o.href}>
-          <Icon type={o.icon} />{o.name}
-      </Link>
-      </Menu.Item>)
-    })
+      return (
+        <Menu.Item key={o.key}>
+          <Link to={o.href}>
+            <Icon type={o.icon} />
+            {o.name}
+          </Link>
+        </Menu.Item>
+      );
+    });
 
     return (
       <div className="menu-box">
