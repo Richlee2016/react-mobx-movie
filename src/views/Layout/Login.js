@@ -72,6 +72,6 @@ class Login extends React.Component {
   }
 }
 
-Login.PropTypes = {};
+Login.propTypes = {};
 
 export default Login;

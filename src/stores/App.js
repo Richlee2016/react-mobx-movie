@@ -1,36 +1,26 @@
 import { observable, action, runInAction } from "mobx";
-import { log_in,log_out } from "@/servers/server";
+import { Session_Login, Session_Logout } from "@/servers/server";
 class App {
   @observable user;
   constructor() {
     this.user = null;
   }
-
-
   //保持会话
   Login = async hash => {
     const reg = /#/;
-    const openid = hash?hash.replace(reg, ""):"no";
-    const res = await log_in(openid);
+    const openid = hash ? hash.replace(reg, "") : "";
+    const { data } = await Session_Login({ openid });
     runInAction(() => {
-      const { data: { code, data } } = res;
-      if (code === 1) {
-        this.user = data;
-      } else {
-        this.user = null;
-      }
+      this.user = data;
     });
   };
 
-  LogOut = async () =>{
-    const res = await log_out();
+  LogOut = async () => {
+    const res = await Session_Logout();
     runInAction(() => {
-      const { data: { code, data } } = res;
-      if (code === 1) {
-        this.user = null;
-      };
+      this.user = null;
     });
-  } 
+  };
 }
 
 const app = new App();

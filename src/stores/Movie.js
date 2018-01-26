@@ -1,5 +1,5 @@
 import { observable, action, computed, runInAction } from "mobx";
-import { get_movie_page,get_movie_home, get_movie_bili } from "@/servers/server";
+import { Movie_Page,Movie_Detail, get_movie_bili } from "@/servers/server";
 class Movie {
   @observable index;
   @observable movie;
@@ -13,30 +13,24 @@ class Movie {
   //获取首页
   async getPageData() {
     if(this.index.length === 0){
-      const home = await get_movie_page();
-      const {data:{code,data:{list}}} = home;
-      if(code === 1){
-        runInAction(() => {
-          this.index = list;
-        })
-      };
+      const home = await Movie_Page();
+      const {data:{page:{list}}} = home;
+      runInAction(() => {
+        this.index = list;
+      })
     };
   }
 
   //获取列表页
   getMovieData = async id => {
-    const movie = await get_movie_home(id);
-    const { data: { code, data } } = movie;
-    if (code === 1) {
-      const bili = await get_movie_bili({search:data.name});
-      const biliCode = bili.data.code;
-      if (biliCode === 1) {
-        runInAction(() => {
-          this.movie = data;
-          this.bili = bili.data.data;
-        });
-      }
-    }
+    const m = await Movie_Detail(id);
+    const { data: { movie} } = m;
+      // const bili = await get_movie_bili({search:data.name});
+      // const biliCode = bili.data.code;
+      runInAction(() => {
+        this.movie = movie;
+        this.bili = bili.data.data;
+      });
   };
   
   // 获取bilibili

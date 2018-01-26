@@ -17,6 +17,15 @@ class Movie extends React.Component {
           )}
         />
       </Switch>
+      <Switch>
+        <Route
+          path="/movie/:id"
+          exact
+          render={props => (
+            <LazyRoute {...props} component={import("./Detail")} />
+          )}
+        />
+      </Switch>
       </div>
     );
   }

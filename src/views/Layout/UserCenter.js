@@ -35,9 +35,9 @@ class UserCenter extends React.Component {
           content={content}
           title={title}
         >
-          <label className="user-name">{user.nickname}</label>
+          <label className="user-name">{user.qqInfo.nickname}</label>
           <div className="figureurl">
-            <img src={user.figureurl} />
+            <img src={user.qqInfo.figureurl} />
           </div>
         </Popover>
       </div>

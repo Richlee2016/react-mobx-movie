@@ -1,12 +1,17 @@
-var path = require('path')
-var utils = require('./utils')
-var config = require('../config')
+'use strict'
+const path = require('path')
+const utils = require('./utils')
+const config = require('../config')
+const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+
+
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
   },
@@ -18,31 +23,23 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve('src')
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
     }
   },
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: vueLoaderConfig
+      },
+      {
         test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-        include: [resolve('src'), resolve('test')],
-        options: {
-            presets: [
-                ["es2015", {"modules": false}],
-                "stage-0",
-                "react"
-            ],
-            plugins: [
-                "transform-runtime",
-                ["import", { "libraryName": "antd", "style": "css" }],
-                "transform-async-to-generator",
-                "transform-decorators-legacy"
-            ]
-        }
+        loader: 'babel-loader',
+        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -67,25 +64,19 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      },
-      {
-        test: /\.less$/,
-        exclude: /node_modules/,
-        use: [
-            "style-loader",
-            "css-loader",
-            "postcss-loader",
-            "less-loader"
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-            "style-loader",
-            "css-loader",
-            "postcss-loader"
-        ]
       }
     ]
+  },
+  node: {
+    // prevent webpack from injecting useless setImmediate polyfill because Vue
+    // source contains it (although only uses it if it's native).
+    setImmediate: false,
+    // prevent webpack from injecting mocks to Node native modules
+    // that does not make sense for the client
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty'
   }
 }
