@@ -15,6 +15,7 @@ class Movie {
     if(this.index.length === 0){
       const home = await Movie_Page();
       const {data:{page:{list}}} = home;
+      console.log(home);
       runInAction(() => {
         this.index = list;
       })

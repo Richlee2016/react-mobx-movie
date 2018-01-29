@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { inject, observer } from "mobx-react";
 import {toJS} from "mobx"
 import {Bili} from "@/components/MovieBlock"
-import "./Movie.less";
+import "./Detail.less";
 @inject("movie")
 @observer
 export default class Detail extends React.Component {

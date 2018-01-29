@@ -1,14 +1,15 @@
 import React from "react";
 // import less from "./Home.less";
-function Movies() {
-  console.log(0);
+function Cartoons() {
+ 
   return (
     <div>
-        movies
+        Cartoons
     </div>
   );
 }
 
-Movies.propTypes = {};
+Cartoons.propTypes = {};
 
-export default Movies;
+
+export default Cartoons;

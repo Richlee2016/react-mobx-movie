@@ -1,0 +1,64 @@
+// .movie-main{
+
+// }
+.movie-header {
+  height: 220px;
+}
+
+.movie-search {
+  z-index: 3;
+  width: 1200px;
+  height: 34px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 130px;
+  margin-left: -600px;
+  .rank {
+    float: right;
+    width: 72px;
+    height: 34px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    display: flex;
+    line-height: 34px;
+    &:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+    i,
+    span {
+      flex: 1;
+      color: #f25d8e;
+    }
+    span {
+      min-width: 42px;
+    }
+  }
+  .serachBox {
+    float: right;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    margin-left: 6px;
+    &:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+    &:hover i {
+      color: #f25d8e;
+    }
+    input {
+      background: none;
+      border: none;
+      width: 200px;
+      padding-left: 10px;
+      height: 34px;
+      outline: none;
+    }
+    i {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      line-height: 34px;
+      color: #00a1d6;
+    }
+  }
+}
