@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import less from "./layout.less";
-import QueueAnim from "rc-queue-anim";
 import qs from "querystring"
 class Login extends React.Component {
   constructor(props) {
@@ -63,9 +62,9 @@ class Login extends React.Component {
           style={{ display: this.state.show ? "flex" : "none" }}
           onClick={this.closeLogin}
         >
-          <QueueAnim type={["scale"]} ease={["easeOutQuart"]}>
+          {/*<QueueAnim type={["scale"]} ease={["easeOutQuart"]}>
             {this.state.show ? [<div className="loginbox" key="a" />] : null}
-          </QueueAnim>
+          </QueueAnim>*/}
         </div>
       </div>
     );

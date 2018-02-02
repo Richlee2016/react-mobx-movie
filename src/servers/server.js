@@ -9,6 +9,7 @@ export const Movie_Detail = id => rxios("GET", `/api/movies/Movies/${id}`);
 export const Movie_Page = () => rxios("GET", `/api/movies/MoviePage`);
 export const Session_Login = qs => rxios("GET", "/api/session/Session", qs);
 export const Session_Logout = () => rxios("POST", "/api/session/DeleteSession");
+export const Hot_Movie = () => rxios("GET", "/api/movies/HotMovies");
 
 // 列表
 // bilibili

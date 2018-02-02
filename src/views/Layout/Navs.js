@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import less from "./layout.less";
-import TweenOne from "rc-tween-one";
 import { Link } from "react-router-dom";
 import { qs } from "@/assets/utils";
 const Navs = function({ navs, location,listChange }) {
@@ -31,9 +30,9 @@ const Navs = function({ navs, location,listChange }) {
   return (
     <div className="navs">
       <ul className="nav">{nav}</ul>
-      {location.pathname === "/list" ? (
+      {/*location.pathname === "/list" ? (
         <TweenOne animation={animation} className="navGo" />
-      ) : null}
+      ) : null*/}
     </div>
   );
 };
