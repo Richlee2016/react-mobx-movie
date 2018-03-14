@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "mobx-react";
-import { BrowserRouter,Route,Switch} from "react-router-dom";
+import { BrowserRouter,Route,Switch,HashRouter} from "react-router-dom";
 import Index from "@/views/Index";
 import * as stores from '@/stores';
 ReactDOM.render(
   <Provider {...stores}>
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Index/>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
   document.getElementById("app")
 );

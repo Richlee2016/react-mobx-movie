@@ -1,10 +1,7 @@
 import { observable, action, runInAction } from "mobx";
 import { Session_Login, Session_Logout } from "@/servers/server";
 class App {
-  @observable user;
-  constructor() {
-    this.user = null;
-  }
+  @observable user=null;
   //保持会话
   Login = async hash => {
     const reg = /#/;

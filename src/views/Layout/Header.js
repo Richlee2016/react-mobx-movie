@@ -20,7 +20,7 @@ class Header extends React.Component {
   }
 
   componentDidMount(){
-    this.store.Login(location.hash);
+    // this.store.Login(location.hash);
   }
 
   //logo操作
@@ -51,7 +51,7 @@ class Header extends React.Component {
             />
           </div>
           <Menu />
-          {this.isLogin(user,this.logins,LogOut)}
+          {/*{this.isLogin(user,this.logins,LogOut)}*/}
         </div>
       </div>
     );
