@@ -6,14 +6,14 @@ import Logo from "./Logo";
 import {Login,UserCenter,Menu} from './index'
 import * as config from "@/config";
 
-@inject("app")
-@observer
+// @inject("app")
+// @observer
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.menus = config.menus;
     this.logins = config.logins;
-    this.store = this.props.app;
+    // this.store = this.props.app;
     this.state = {
       logo: "icon-p"
     };
@@ -38,7 +38,8 @@ class Header extends React.Component {
   };
 
   render() {
-    const {user,LogOut} = this.store;
+    // const {user,LogOut} = this.store;
+    let user = null;
     const { logo } = this.state;
     return (
       <div className="header">

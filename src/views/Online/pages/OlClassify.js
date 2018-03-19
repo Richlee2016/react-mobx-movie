@@ -4,12 +4,13 @@ import {toJS} from "mobx"
 import OlSwiper from "../components/OlSwiper"
 import OlList from "../components/OlList"
 import "./less/classify.less"
-@inject("online")
+@inject("rootStore")
 @observer
 class Classify extends React.Component {
   constructor(props) {
     super(props);
-    this.store = this.props.online;
+    this.root = this.props.rootStore;
+    this.store = this.props.rootStore.online;
   }
 
   componentDidMount() {

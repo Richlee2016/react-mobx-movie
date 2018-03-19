@@ -38,5 +38,5 @@ class Home {
   }
 }
 
-const home = new Home();
-export default home;
+// const home = new Home();
+export default Home;

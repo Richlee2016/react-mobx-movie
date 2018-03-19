@@ -10,7 +10,10 @@ import {
   Get_Oline_Page,
   Get_Oline_Vod
 } from "@/servers/online";
-class List {
+class Online {
+  constructor(root){
+    this.rootState = root;
+  }
   /**observable------------------------------------------------------ */
   @observable home = {};
   @observable classify = {};
@@ -67,5 +70,5 @@ class List {
   }
 }
 
-const list = new List();
-export default list;
+// const list = new List();
+export default Online;

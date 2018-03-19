@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import { Provider } from "mobx-react";
 import { BrowserRouter,Route,Switch,HashRouter} from "react-router-dom";
 import Index from "@/views/Index";
-import * as stores from '@/stores';
+import RootStore from '@/stores';
 ReactDOM.render(
-  <Provider {...stores}>
+  <Provider rootStore={new RootStore()}>
     <HashRouter>
       <Switch>
         <Index/>

@@ -1,6 +1,8 @@
 var qs = require('querystring')
+import root from "../stores"
+console.log(root);
 import axios from 'axios'
-
+// 添加请求拦截器
 //  get、post
 export default (type, url, data, mixin) => {
     const qsData = qs.stringify(data);

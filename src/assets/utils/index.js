@@ -4,3 +4,7 @@ export const qs = q => {
   const res = q.replace(reg, "");
   return querys.parse(res);
 };
+
+export const Reg = {
+  clearUrl:str => str.replace(/\//g,"")
+}

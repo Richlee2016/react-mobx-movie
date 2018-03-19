@@ -3,12 +3,12 @@ import { inject, observer } from "mobx-react";
 import { toJS } from "mobx";
 import  ReactPlayer from "react-player"
 import "./home.less";
-@inject("home")
+@inject("rootStore")
 @observer
 class Special extends React.Component {
   constructor(props) {
     super(props);
-    this.store = this.props.home;
+    this.store = this.props.rootStore.home;
     this.state = {};
   }
 

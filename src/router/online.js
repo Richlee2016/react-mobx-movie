@@ -10,7 +10,7 @@ export default [
     }
   },
   {
-    path: '/online/classfy/:type',
+    path: '/online/classify/:type',
     component(props){
       return <LazyRoute {...props} component={import ("@/views/Online/pages/OlClassify")}/>
     }
@@ -19,6 +19,12 @@ export default [
     path: '/online/vod/:id',
     component(props){
       return <LazyRoute {...props} component={import ("@/views/Online/pages/OlVod")}/>
+    }
+  },
+  {
+    path: '/online/play/:src',
+    component(props){
+      return <LazyRoute {...props} component={import ("@/views/Online/pages/OlPlay")}/>
     }
   }
 ]
